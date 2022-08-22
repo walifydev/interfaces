@@ -1,6 +1,10 @@
 # Walify Contracts and interfaces
 
-This repository contains the code useful for integrating Walify into other contracts
+***Walify*** allows any project that wants to reward their users to do so while protecting their users valuable assets. 
+
+This repository contains the code useful for integrating Walify into other contracts.
+
+The "Ghost" address and "Proxy" address are synonymous.
 
 ## Some Features include:
 
@@ -10,6 +14,7 @@ This repository contains the code useful for integrating Walify into other contr
 
 3. Easy import walify interface
 
+  
 
 ## Integrate walify into your NFT contract:
 
@@ -37,6 +42,26 @@ require(requiredContract.balanceOf(root) > 0, "You do not own required NFT");
 
 }
 ```
+
+Use this example to guide your projects Walify integration.
+
+You may only need to use the verify function for the majority of cases. The interface can be written as:
+```
+interface  IWALIFY {
+
+function  verify(address, address) external  returns(bool);
+
+}
+```
+
+The nftWithWalify.sol uses checkRequiredProxy in 2 functions:
+
+`proxyPublicMint`
+and
+`proxyPublicMintToRoot`
+
+proxyPublicMintToRoot is useful if the reward needs to go to the root wallet. 
+
 
 **Note this** contract uses [OpenZeppelin](http://openzeppelin.com/) standard libraries 
 
