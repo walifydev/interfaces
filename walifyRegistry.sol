@@ -11,7 +11,7 @@ mapping (address => address) public root_to_proxy;
 
 mapping (address => address) public root_to_proxy_proofs;
 
-uint256 public registration_fee = 100;
+uint256 public registration_fee = 0;
 
 event Register(address root, address proxy);
 
@@ -76,8 +76,13 @@ event Proved(address root,address proxy);
 
     }
 
+    function getFee() public view returns(uint256){
+
+        return registration_fee;
+
+    }
+
 
 
 
 }
-
